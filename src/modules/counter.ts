@@ -16,3 +16,20 @@ export const increaseBy = (diff: number) => ({
     payload: diff
 });
 
+// 액션 객체들에 대한 type 준비
+// ReturnType : 함수에서 반환하는 타입을 가져올 수 있게 해주는 유틸
+// ReturnType을 사용했을 때 const assertions 문법을 사용하지 않는다면 무조건 string으로 처리되어 리듀서를 제대로 구현할 수 없다.
+type CounterAction = 
+    | ReturnType<typeof increase>
+    | ReturnType<typeof decrease>
+    | ReturnType<typeof increaseBy>;
+
+// 상태의 타입과 상태의 초기값 선언
+type CounterState = {
+    count: number;
+}
+
+const initialState: CounterState = {
+    count: 0
+};
+
