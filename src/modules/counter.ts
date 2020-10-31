@@ -34,7 +34,7 @@ const initialState: CounterState = {
 };
 
 // Reducer 작성
-function counter(state: CounterState = initialState, action: CounterAction) {
+function counter(state: CounterState = initialState, action: CounterAction): CounterState {
     switch (action.type) {
         case INCREASE:
             return { count: state.count + 1 };
