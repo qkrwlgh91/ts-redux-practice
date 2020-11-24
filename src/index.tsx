@@ -5,10 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 // redux를 적용하기 위해서는 store, provider, rootReducer등을 추가 및 적용을 해주어야 한다.
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './modules';
+import Thunk from 'redux-thunk';
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(Thunk));
 
 
 ReactDOM.render(

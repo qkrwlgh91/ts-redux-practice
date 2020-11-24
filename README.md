@@ -1,3 +1,10 @@
+# Git 사용자 정보 가져오기
+```
+Get https://api.github.com/users/:username
+
+```
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
