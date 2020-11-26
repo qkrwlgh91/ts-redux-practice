@@ -1,7 +1,8 @@
 import { createReducer } from 'typesafe-actions';
 import { GithubState, GithubAction } from './types';
-import { GET_USER_PROFILE, GET_USER_PROFILE_SUCCESS, GET_USER_PROFILE_ERROR } from './actions';
-import { asyncState } from '../../lib/reducerUtils';
+import { getUserProfileAsync } from './actions';
+// import { GET_USER_PROFILE, GET_USER_PROFILE_SUCCESS, GET_USER_PROFILE_ERROR } from './actions';
+import { asyncState, createAsyncReducer } from '../../lib/reducerUtils';
 /*
 const initialState: GithubState = {
     userProfile: {
@@ -47,6 +48,7 @@ const initialState: GithubState = {
     userProfile: asyncState.initial()
 };
 
+/*
 const github = createReducer<GithubState, GithubAction>(initialState, {
     [GET_USER_PROFILE]: state => ({
         ...state,
@@ -61,5 +63,12 @@ const github = createReducer<GithubState, GithubAction>(initialState, {
         userProfile: asyncState.error(action.payload)
     })
 });
+*/
+
+// 위의 코드를 AsyncActionCreatorBuilder를 lib/reducerUtils.ts 사용하여 아래와같이 리팩토링이 가능하다.
+const github = createReducer<GithubState, GithubAction>(initialState).handleAction(
+    [getUserProfileAsync.request, getUserProfileAsync.success, getUserProfileAsync.failure],
+    createAsyncReducer(getUserProfileAsync, 'userProfile')
+)
 
 export default github;
