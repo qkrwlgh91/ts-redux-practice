@@ -68,3 +68,9 @@ export function createAsyncReducer<S, AC extends AnyAsyncActionCreator, K extend
             }
     }
 }
+
+// transformToArray를 통한 리팩토링
+export function transformToArray<AC extends AnyAsyncActionCreator>(asyncActionCreator: AC) {
+    const { request, success, failure } = asyncActionCreator;
+    return [request, success, failure];
+}

@@ -2,7 +2,7 @@ import { createReducer } from 'typesafe-actions';
 import { GithubState, GithubAction } from './types';
 import { getUserProfileAsync } from './actions';
 // import { GET_USER_PROFILE, GET_USER_PROFILE_SUCCESS, GET_USER_PROFILE_ERROR } from './actions';
-import { asyncState, createAsyncReducer } from '../../lib/reducerUtils';
+import { asyncState, createAsyncReducer, transformToArray } from '../../lib/reducerUtils';
 /*
 const initialState: GithubState = {
     userProfile: {
@@ -67,8 +67,9 @@ const github = createReducer<GithubState, GithubAction>(initialState, {
 
 // 위의 코드를 AsyncActionCreatorBuilder를 lib/reducerUtils.ts 사용하여 아래와같이 리팩토링이 가능하다.
 const github = createReducer<GithubState, GithubAction>(initialState).handleAction(
-    [getUserProfileAsync.request, getUserProfileAsync.success, getUserProfileAsync.failure],
+    // [getUserProfileAsync.request, getUserProfileAsync.success, getUserProfileAsync.failure],
+    transformToArray(getUserProfileAsync),
     createAsyncReducer(getUserProfileAsync, 'userProfile')
-)
+);
 
 export default github;
