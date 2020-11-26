@@ -1,10 +1,11 @@
+/*
 import { ThunkAction } from 'redux-thunk';
 import { RootState } from '..';
 import { GithubAction } from './types';
 import { getUserProfile } from '../../api/github';
 import { getUserProfileAsync } from './actions';
 
-/*
+
     Thunk Action의 Generics로 다음 값들을 순서대로 넣어주어야 한다.
     <TReturnType, TState, TExtraThunkArg, TBasicAction>
     TReturnType: thunk함수에서 반환하는 값의 타입을 설정
@@ -14,7 +15,7 @@ import { getUserProfileAsync } from './actions';
 
     TReturnType의 경우 아무것도 반환하지 않는다면 void라고 넣는다.
     현재 thunk함수에서 async를 사용하고 있으므로 promise<void>가 더 정확하지만 void라고 해도 문제 없음
-*/
+
 
 export function getUserProfileThunk(username: string): ThunkAction<void, RootState, null, GithubAction> {
     return async dispatch => {
@@ -28,3 +29,12 @@ export function getUserProfileThunk(username: string): ThunkAction<void, RootSta
         }
     };
 }
+
+*/
+
+// 위의 코드를 리팩토링을 통하여 (lib/createAsyncThunk)아래와 같이 작성할 수 있다.
+import { getUserProfile } from '../../api/github';
+import { getUserProfileAsync } from './actions';
+import createAsyncThunk from '../../lib/createAsyncThunk';
+
+export const getUserProfileThunk = createAsyncThunk(getUserProfileAsync, getUserProfile);
