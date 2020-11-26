@@ -3,6 +3,7 @@ import React from 'react';
 import Counter from './components/Counter';
 import TodoInset from './components/TodoInsert';
 import TodoList from './components/TodoList';
+import GithubProfileLoader from './containers/GithubProfileLoader';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
       <Counter />
       <TodoInset />
       <TodoList />
+      <hr />
+      <GithubProfileLoader />
     </>
   );
 }
