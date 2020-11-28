@@ -6,11 +6,17 @@ import reportWebVitals from './reportWebVitals';
 // redux를 적용하기 위해서는 store, provider, rootReducer등을 추가 및 적용을 해주어야 한다.
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import rootReducer from './modules';
+import createSagaMiddleware from 'redux-saga';
+import rootReducer, { rootSaga } from './modules';
 import Thunk from 'redux-thunk';
 
-const store = createStore(rootReducer, applyMiddleware(Thunk));
+// const store = createStore(rootReducer, applyMiddleware(Thunk));
 
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>

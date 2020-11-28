@@ -15,5 +15,4 @@ export const getUserProfileAsync = createAsyncAction(
     GET_USER_PROFILE,
     GET_USER_PROFILE_SUCCESS,
     GET_USER_PROFILE_ERROR
-)<any, GithubProfile, AxiosError>();
-
+)<string, GithubProfile, AxiosError>();
