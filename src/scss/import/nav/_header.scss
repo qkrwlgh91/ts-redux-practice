@@ -1,0 +1,12 @@
+header {
+    border-bottom: 1px solid black;
+    padding: 1rem;
+    ul li {
+        display: inline;
+        margin-left: 1rem;
+        font-size: 1rem;
+        &:hover {
+            background: pink;
+        }
+    }
+}
