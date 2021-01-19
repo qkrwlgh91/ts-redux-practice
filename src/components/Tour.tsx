@@ -41,7 +41,7 @@ function Tour() {
                     </button>
                 </div>
                 <div className="tour__article--list" >
-                    <Link to="/tour-list">
+                    <Link to="/tour-detail">
                         <ul>
                             <li>{tourList.title}</li>
                             <li>작성자 : {tourList.name}</li>

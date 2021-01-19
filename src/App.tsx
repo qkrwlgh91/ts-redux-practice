@@ -9,7 +9,7 @@ import GithubProfileLoader from './containers/GithubProfileLoader';
 import Tour from './components/Tour';
 import Header from './components/nav/Header';
 import TourPlan from './components/tour/TourPlan';
-import TourList from './components/tour/TourList';
+import TourDetail from './components/tour/TourDetail';
 
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
         <Route exact={true} path="/git-info" component={GithubProfileLoader} />
         <Route exact={true} path="/tour" component={Tour} />
         <Route exact={true} path="/tour-plan" component={TourPlan} />
-        <Route exact={true} path="/tour-list" component={TourList} />
+        <Route exact={true} path="/tour-detail" component={TourDetail} />
         {/* not fount */}
         <Route component={() => <Redirect to="/" />} />
       </Switch>
