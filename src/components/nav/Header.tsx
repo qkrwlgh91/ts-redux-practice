@@ -21,7 +21,7 @@ function Header() {
                     <Link to="/git-info">Github</Link>
                 </li>
                 <li>
-                    <Link to="/tour-plan">tour</Link>
+                    <Link to="/tour">tour</Link>
                 </li>
             </ul>
         </header>

@@ -4,14 +4,19 @@
     left: 0;
     width: 100%;
     display: flex;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
     section {
-        min-width: 100%;
+        min-width: 80%;
+        margin-right: 10%;
         height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 80vh;
         background: #fffee1;
+        scroll-snap-align: start;
         &:nth-child(2) {
             background: #e2fcff;
         }

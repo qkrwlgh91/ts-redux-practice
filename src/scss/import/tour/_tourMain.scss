@@ -1,0 +1,21 @@
+.tour {
+    position: relative;
+    border-bottom: none;
+    text-align: center;
+    &__header {
+        font-size: 3rem;
+        font-weight: 800;
+        letter-spacing: 1rem;
+        text-shadow: 3px 2px #3300cc;
+        margin: 2rem 0 5rem 0;
+    }
+    &__article {
+        margin: 0 10rem;
+        &--list {
+            border: 1px solid black;
+            border-radius: 1rem;
+            margin: 1rem;
+            padding: 1rem;
+        }
+    }
+}
